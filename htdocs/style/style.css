@@ -1,0 +1,73 @@
+html {
+    overflow-y: scroll;
+}
+
+main {
+    margin: 8px auto;
+    padding: 8px;
+    width: 980px;
+    border-radius: 10px;
+    min-height: 600px;
+    margin-top: 30px;
+}
+
+.bild_jag {
+    width: 200px;
+    float: left;
+    height: 200px;
+    transform: rotate(90deg);
+    margin: 10px;
+}
+
+.nav {
+    background-image: linear-gradient(to top,black 0,#6f6f6f 100%);
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    left: 0;
+    z-index: 5;
+}
+
+.navtext {
+    font-size: 32px;
+    color: white;
+
+}
+
+.bild_about {
+    width: 100%;
+    height: 300px;
+}
+
+.site-footer {
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    height: 200px;
+}
+
+.bild_jag_byline {
+    width: 100px;
+    height: 100px;
+    float: left;
+    transform: rotate(90deg);
+    border-radius: 5px;
+}
+
+.byline {
+    width: 400px;
+    float: left;
+    overflow: auto;
+    margin-left: 35%;
+    margin-top: 40px;
+}
+
+.byline_p {
+    font-size: 17px;
+    margin-top: 0.1px;
+    color: white;
+    padding-left: 120px;
+}
