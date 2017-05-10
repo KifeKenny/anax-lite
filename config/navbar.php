@@ -30,5 +30,15 @@ return [
             "route" => "session",
             "aclass" => "navtext",
         ],
+        "login" => [
+            "text" => "Login",
+            "route" => "login",
+            "aclass" => "navtext",
+        ],
+        "profile" => [
+            "text" => "Profile",
+            "route" => "profile",
+            "aclass" => "navtext",
+        ],
     ]
 ];

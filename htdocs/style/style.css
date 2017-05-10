@@ -11,6 +11,43 @@ main {
     margin-top: 45px;
 }
 
+.dump_cookie {
+    min-height: 100px;
+    padding: 20px;
+    background: lightgrey;
+    border: 1px solid;
+}
+
+.adminTable,
+.adminTr,
+.adminTd,
+.adminTh {
+    border: 1px solid black;
+}
+
+.adminTable {
+    width: 100%;
+    margin-top: 50px;
+    min-height: 150px;
+}
+
+.search_error {
+    margin-top: 50px;
+    min-height: 50px;
+    padding: 10px;
+    background-color: rgb(225, 189, 189);
+    border: 1px solid black;
+
+}
+
+.profile {
+    text-align: center;
+}
+
+.align {
+    text-align: center;
+}
+
 .bild_jag {
     width: 200px;
     float: left;

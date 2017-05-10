@@ -3,6 +3,9 @@
 
 <?php
 
+$today = getdate();
+$m = $today["mon"];
+
 if (!$app->session->has("month")) {
     $app->session->set("month", $m);
 }

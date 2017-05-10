@@ -3,8 +3,14 @@
 $app->router->addInternal("404", function () use ($app) {
     $currentRoute = $app->request->getRoute();
     $routes = "<ul>";
+    $showAbleRoutes = [];
     foreach ($app->router->getAll() as $route) {
-        $routes .= "<li>'" . $route->getRule() . "'</li>";
+        array_push($showAbleRoutes, $route->getRule());
+        // $routes .= "<li>'" . $route->getRule() . "'</li>";
+    }
+    // var_dump($showAbleRoutes);
+    for ($i=0; $i < count($showAbleRoutes) - 14; $i++) {
+        $routes .= "<li>'" . $showAbleRoutes[$i] . "'</li>";
     }
     $routes .= "</ul>";
 

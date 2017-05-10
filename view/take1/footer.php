@@ -1,3 +1,6 @@
+</main>
+    </body>
+
 <footer class="site-footer">
     <div class="byline">
         <img class="bild_jag_byline" src="img/jag.JPG" alt="Kevin O.J">
