@@ -27,24 +27,17 @@ $app->view     = new \Anax\View\ViewContainer();
 $app->session     = new \watel\Session\Session();
 $app->calandar     = new \watel\Calandar\Calandar();
 $app->cookie = new \watel\Session\Cookie();
-
+$app->filter = new \watel\Filter\Filter();
 
 $app->navbar = new \watel\Navbar\Navbar();
 $app->navbar->configure("navbar.php");
 
-// $app->cookie->set("name", "somthing");
-// $app->cookie->delete("name");
-// echo $app->cookie->get("name");
-// var_dump($app->db);
 $app->db = new \watel\Database\DatabaseConfigure();
 $app->db->configure("database.php");
 $app->db->setDefaultsFromConfiguration();
 
 $app->db->connect();
 
-
-// $app->db->addUser($user, $pass);
-// echo $app->db->getHash("funkar?");
 
 $app->navbar->setApp($app);
 

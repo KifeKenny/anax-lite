@@ -34,7 +34,7 @@ if ($app->session->get('name') == "admin") {
     </table>
 </form>
 <?php
-$url = $app->url->create("login.php");
+$url = $app->url->create("login");
 
 echo "<a href=$url>Login</a>";
 ?>

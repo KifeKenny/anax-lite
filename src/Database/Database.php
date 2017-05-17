@@ -141,6 +141,44 @@ class Database
         $res = $sth->fetchAll();
         return $res;
     }
+    public function getAssArrayLO($table, $limit, $offset)
+    {
+        // $sql = "SELECT * FROM users;";
+        $sth = $this->db->prepare("SELECT * FROM $table LIMIT $limit OFFSET $offset;");
+        $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
+        $sth->execute();
+        $res = $sth->fetchAll();
+        return $res;
+    }
+    public function getAssMax($value, $table)
+    {
+        $sth = $this->db->prepare("SELECT COUNT($value) AS max FROM $table;");
+        $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
+        $sth->execute();
+        $res = $sth->fetchAll();
+        return $res;
+    }
+
+    public function pleaseWork($table, $orderBy, $order, $limit, $offset)
+    {
+        $sql = "SELECT * FROM $table ORDER BY $orderBy $order LIMIT $limit OFFSET $offset;";
+        $sth = $this->db->prepare("$sql");
+        $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
+
+        $sth->execute();
+        $res = $sth->fetchAll();
+        return $res;
+    }
+
+    public function getAssArrayOrderBy($table, $orderBy, $order)
+    {
+        // $sql = "SELECT * FROM users;";
+        $sth = $this->db->prepare("SELECT * FROM $table ORDER BY $orderBy $order;");
+        $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
+        $sth->execute();
+        $res = $sth->fetchAll();
+        return $res;
+    }
 
     public function getColum($where, $name)
     {
@@ -154,12 +192,8 @@ class Database
 
     public function delete($where, $name)
     {
-        // $sql = "SELECT * FROM users;";
         $sth = $this->db->prepare("DELETE FROM users WHERE $where=$name;");
-        // $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
         $sth->execute();
-        // $res = $sth->fetchAll();
-        // return $res;
     }
     /**
      * Support arrays in params, extract array items and add to $params
@@ -247,10 +281,10 @@ class Database
      *
      * @return array with resultset.
      */
-    public function fetchObject($class)
-    {
-        return $this->stmt->fetchObject($class);
-    }
+    // public function fetchObject($class)
+    // {
+    //     return $this->stmt->fetchObject($class);
+    // }
 
 
 
@@ -261,11 +295,11 @@ class Database
      *
      * @return array with resultset.
      */
-    public function fetchInto($object)
-    {
-        $this->stmt->setFetchMode(\PDO::FETCH_INTO, $object);
-        return $this->stmt->fetch();
-    }
+    // public function fetchInto($object)
+    // {
+    //     $this->stmt->setFetchMode(\PDO::FETCH_INTO, $object);
+    //     return $this->stmt->fetch();
+    // }
 
 
 

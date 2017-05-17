@@ -12,6 +12,7 @@ require __DIR__ . "/route/internal.php";
 require __DIR__ . "/route/login.php";
 require __DIR__ . "/route/register.php";
 require __DIR__ . "/route/logout.php";
+require __DIR__ . "/take2Routes/filter.php";
 
 require __DIR__ . "/route/back.php";
 require __DIR__ . "/route/sessionstatus.php";

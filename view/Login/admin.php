@@ -1,20 +1,63 @@
 <?php
 
-$dataArr = $app->db->getAssArray();
+$show = isset($_GET['show'])
+? $_GET['show']
+: null;
 
-// var_dump($dataArr);
+$defaultRoute = "?show=show-all-sort&";
 
-// echo $dataArr[0]->name;
+function decrese($value)
+{
+    if ($value <= 1) {
+        return 1;
+    }
+    return $value - 2;
+}
 
+function increse($value)
+{
+    return $value + 2;
+}
+
+$searchTitle = isset($_GET['search'])
+? $_GET['search']
+: null;
+
+// $dataArr = $app->db->getAssArray();
+
+
+$hits = getGet("hits", 2);
+if (!(is_numeric($hits) && $hits > 0 && $hits <= 8)) {
+    die("Not valid for hits.");
+}
+
+
+$max = $app->db->getAssMax("id", "users");
+$max = ceil($max[0]->max / $hits);
+
+
+$page = getGet("page", 1);
+if (!(is_numeric($page) && $page > 0 && $page <= $max)) {
+    die("Not valid for page.");
+}
+
+
+$offset = $hits * ($page - 1);
+
+$dataArr = $app->db->getAssArrayLO("users", $hits, $offset);
+// print_r($dataArr);
+
+// $dataArr[0]->name;
 $table = "";
 $table .= '<table class=adminTable>';
 $table .= '<tr class=adminTr>';
-$table .= '<th class=adminTh>name</th>';
-$table .= '<th class=adminTh>password</th>';
+$table .= '<th class=adminTh>name' . orderby2("name", $defaultRoute, true) . '</th>';
+$table .= '<th class=adminTh>Password' . orderby2("password", $defaultRoute, true) . '</th>';
 $table .= '<th class=adminTh>Edit</th>';
 $table .= '<th class=adminTh>Delete</th>';
 $table .= '</tr>';
 $table2 = $table;
+$table3 = $table;
 foreach ($dataArr as $row) {
     $table .= "<tr class=adminTr>";
     $table .= "<td class=adminTd>{$row->name}</td>";
@@ -25,13 +68,10 @@ foreach ($dataArr as $row) {
 }
 $table .= "</table>";
 
-$show = isset($_GET['show'])
-? $_GET['show']
-: null;
 
-$searchTitle = isset($_GET['search'])
-? $_GET['search']
-: null;
+
+
+
 
 ?>
 
@@ -54,19 +94,37 @@ $searchTitle = isset($_GET['search'])
 
 <form method="GET">
     <input type="submit" name="show" value="Show All">
+    <input type="hidden" name="page" value=<?=($page)?>>
+    <input type="hidden" name="hits" value=<?=($hits)?>>
     <input type="submit" name="show" value="create">
-
 </form>
-
 </fieldset>
 
 
 <?php
+$ItemsPerPageArray = [
+    mergeQueryString(["hits" => 2], $defaultRoute),
+    mergeQueryString(["hits" => 4], $defaultRoute),
+    mergeQueryString(["hits" => 8], $defaultRoute)
+];
 
+$ItemsPerPage = <<<EOD
+<p>Items per page:
+    <a href={$ItemsPerPageArray[0]}>2</a> |
+    <a href={$ItemsPerPageArray[1]}>4</a> |
+    <a href={$ItemsPerPageArray[2]}>8</a> |
+</p>
+EOD;
 
 switch ($show) {
     case 'Show All':
+        echo $ItemsPerPage;
         echo $table;
+        echo "<p> Pages:";
+        for ($i = 1; $i <= $max; $i++) {
+            echo " | <a href=" . mergeQueryString(["page" => $i], $defaultRoute) . ">" . $i . "</a> |";
+        }
+        echo "</p>";
         break;
     case 'search_Title':
         if ($app->db->exists($searchTitle)) {
@@ -125,6 +183,37 @@ switch ($show) {
         break;
     case 'edit done':
         echo "<p> Password successfully edited!</p>";
+        break;
+
+    case 'show-all-sort':
+        $columns = ["name", "password", "year", "image"];
+        $orders = ["asc", "desc"];
+
+        $orderBy = getGet("orderby") ?: "id";
+        $order = getGet("order") ?: "asc";
+
+        if (!(in_array($orderBy, $columns) && in_array($order, $orders))) {
+            die("Not valid input for sorting.");
+        }
+        // var_dump([$orderBy, $order, $hits, $offset]);
+        $dataArr = $app->db->pleaseWork("users", $orderBy, $order, $hits, $offset);
+        // $dataArr = $app->db->getAssArrayOrderBy("users", $orderBy, $order);
+        foreach ($dataArr as $row) {
+            $table3 .= "<tr class=adminTr>";
+            $table3 .= "<td class=adminTd>{$row->name}</td>";
+            $table3 .= "<td class=adminTd>{$row->password}</td>";
+            $table3 .= "<td class=adminTd><a href=?show=edit&id={$row->id}>Edit</a></td>";
+            $table3 .= "<td class=adminTd><a href=?show=delete&id={$row->id}>Delete</a></td>";
+            $table3 .= "</tr>";
+        }
+        $table3 .= "</table>";
+        echo $ItemsPerPage;
+        echo $table3;
+        echo "<p> Pages:";
+        for ($i = 1; $i <= $max; $i++) {
+            echo " | <a href=" . mergeQueryString(["page" => $i], $defaultRoute) . ">" . $i . "</a> |";
+        }
+        echo "</p>";
         break;
 
     default:
