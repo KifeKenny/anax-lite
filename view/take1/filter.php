@@ -21,18 +21,15 @@ if (isset($text)) {
     <input type="submit" value="Filter" class="inp1">
 </form>
 
-
-<div class="dropdown">
-  <button class="dropbtn">Chose filter</button>
-  <div class="dropdown-content">
-    <a href="?filter=None">None</a>
-    <a href="?filter=BBCode">BBCode</a>
-    <a href="?filter=Link">Link</a>
-    <a href="?filter=Markdown">Markdown</a>
-    <a href="?filter=nl2br">nl2br</a>
-  </div>
+<div style="margin-top: 50px">
+    <p><strong>Chose filter: </strong></p>
+<a href="?filter=None">None</a>
+<a href="?filter=BBCode">BBCode</a>
+<a href="?filter=Link">Link</a>
+<a href="?filter=Markdown">Markdown</a>
+<a href="?filter=nl2br">nl2br</a>
 </div>
-
+<hr>
 <?php
 
 $filter = isset($_GET['filter'])
@@ -74,7 +71,7 @@ switch ($filter) {
 
 ?>
 
-<h3>Filter : <?=$filterName?></h3>
+<h3>Current filter : <?=$filterName?></h3>
 <p>try: <em><?=$try?></em></p>
 <strong>Output: </strong>
 <hr>

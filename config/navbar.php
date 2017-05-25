@@ -40,5 +40,26 @@ return [
             "route" => "profile",
             "aclass" => "navtext",
         ],
+        "pages" => [
+            "text" => "Pages",
+            "route" => "page?route=Show-All",
+            "aclass" => "drop",
+        ],
+        "blogg" => [
+            "text" => "Blogg",
+            "route" => "blogg",
+            "aclass" => "none",
+        ],
+        "block" => [
+            "text" => "Block",
+            "route" => "block",
+            "aclass" => "none",
+        ],
+
+        "filter" => [
+            "text" => "Filter",
+            "route" => "filter",
+            "aclass" => "drop-end",
+        ],
     ]
 ];

@@ -7,10 +7,10 @@ namespace watel\App;
  */
 class App
 {
-    public function renderPage($title, $page, $folder)
+    public function renderPage($title, $page, $folder, $res = null)
     {
         $this->view->add("take1/header", ["title" => ["$title", "style/style.css"]]);
-        $this->view->add("$folder/$page");
+        $this->view->add("$folder/$page", ["resultset" => $res]);
         $this->view->add("take1/footer");
 
         $this->response->setBody([$this->view, "render"])

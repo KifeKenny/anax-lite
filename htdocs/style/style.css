@@ -6,6 +6,7 @@ h3 {
     margin-bottom: 0.1px;
 }
 main {
+    overflow: auto;
     margin: 8px auto;
     padding: 8px;
     width: 980px;
@@ -90,6 +91,11 @@ main {
     padding-bottom: 9px;
     text-decoration: none;
 
+}
+
+.navtext a:hover {
+    color: grey;
+    background-color: black;
 }
 
 .active {
@@ -182,7 +188,6 @@ article {
 .monkey {
     font-size: 2em;
     margin-top: 30px;
-    float: right;
 }
 
 .monkey2 {
@@ -240,14 +245,17 @@ article {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+    color: #d8d8d8;
+    padding: 12px 12px;
     text-decoration: none;
     display: block;
+    font-size: 32px;
 }
 
+
+
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {color: grey}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -257,4 +265,33 @@ article {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+.editText {
+    height: 200px;
+    width: 400px;
+}
+
+.black {
+    background-color: black;
+    min-width: 0.1px;
+}
+
+.title-sidbar {
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin-top: 0.1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightgray;
+}
+
+.sidebar-right {
+    width: 250px;
+    min-height: 200px;
+    border: 1px solid black;
+}
+
+.right {
+    float: right;
 }

@@ -147,9 +147,54 @@ p.s Du når admin sidan genom att gå in på admins profil och sen trycka på Ac
 
 
 <h3>Kmom04</h3>
-<p>redovisnings text ... </p>
+<p>
 
-<p> mer text .. </p>
+1.Finns något att säga kring din klass för texfilter, eller rent allmänt om formattering
+och filtrering av text som sparas i databasen av användaren?
+<br>
+Inte direkt. För textfilteringen använde jag mig av functionerna från artiklarna
+som vi blev tillgivna. Det enda jag la till var en function som kollar så att namnen
+av textfilterna är korrekta, om ett namn t.ex är felstavade så bara ignorerar den det
+namnet. Sen också en function som tar texten igenom filterna som blivit givna.
+<br><br>
+2.Berätta hur du tänkte när du strukturerade klasserna och databasen för webbsidor och bloggposter?
+<br>Jag gjorde en nu databas klass för denna övning (Eller rättare sagt jag använde mig av mos
+databas klass som visades i en föreläsning tidigare). Tog ett tag innan jag förstod vad
+allt gjorde i klassen men efter att jag förstod det mesta var klassen super smidig att
+använda. Själva databasen så strukturerade jag som övningen eftersom jag tyckte
+det gick bra där. Nu när jag strukturera saker försöker jag göra dem så återanvändbara som möjligt.
+
+<br><br>
+3.Förklara vilka routes som används för att demonstrera funktionaliteten för
+webbsidor och blogg (så att en utomstående kan testa).
+<br><br>
+Hovra bara din mus över ”more” i navbaren så kommer en dropdown som tar dig till
+sidorna som demonstrerar sidorna(”/page?route=Show-All”, ” /blogg”, ”/block”, /filter). Sen för
+att ändra och lägga till inlägg så loggar du in som admin går in på profile och
+trycker på overview(route: /overview). När du lägger till innehåll i databasen
+så är bra saker att tänka på: om du skriver in en slug som redan existerar
+kommer du till en error sida, ditt inlägg blir endast publicerat när du sparar på edit
+sidan, om du inte skriver in ett datum på publish fältet så blir det det nuvarande
+datumet. Filter optionsen ska vara separerade med komma(”,”) exempel: ”link,nl2br”,
+om du skriver in en path som redan existerar får du felmeddelande.
+
+<br><br>
+4.Hur känns det att dokumentera databasen så här i efterhand?
+<br>Det känns bra.
+<br><br>
+5.Om du är självkritisk till koden du skriver i Anax Lite, ser du förbättringspotential
+och möjligheter till alternativ struktur av din kod?<br>
+Tycker att koden jag skrev för detta kursmoment var mycket bättre än koden jag skrev
+för kmom03. Så det går framåt i alla fall och jag lär mig saker. Ser ständigt kod
+jag skrivit som jag tycker varit rörigt och som jag direkt tänker hur jag kunde
+gjort bättre. Just nu ser jag inte förbättringspotential för koden jag skrev för
+detta kursmoment. Men det finns ju alltid saker man kan göra bättre kanske kunde
+återanvände mig av min sql kod bättre, kanske en switch sats inte det bästa att använda för att få ut routsen.
+
+<br><br>
+p.s Uppgift 3 finns i kmom04 mappen. Får även ett felmedelande på från mardown funktionen
+som jag inte vet hur jag ska fixa.
+</p>
 
 
 <h3>Kmom05</h3>

@@ -53,9 +53,19 @@ class Navbar implements \Anax\Common\ConfigureInterface
             if ($route == $value["route"]) {
                 $active = "active";
             }
+
+            if ($value["aclass"] == "drop") {
+                $send .= '<div class="dropdown">';
+                $send .= '<a class="navtext">More</a>';
+                $send .= '<div class="dropdown-content black">';
+            }
             //create routes and echo out a element whit values
             $url = $create[0]->$create[1]($value["route"]);
             $send .= '<a class=' . $active . ' href=' . $url . '>' . $value["text"] . "</a>";
+            if ($value["aclass"] == "drop-end") {
+                $send .= '</div>';
+                $send .= '</div>';
+            }
         }
         $send .= $this->getHTMLEnd();
         return $send;

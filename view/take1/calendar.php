@@ -37,7 +37,7 @@ $app->calandar->getMonth($month)->allDays();
 <div>
 <?php
 $url = $app->url->create("forward");
-echo '<a class=monkey href=' . $url .'>>>></a>';
+echo '<a class="monkey right" href=' . $url .'>>>></a>';
 
 ?>
 </div>

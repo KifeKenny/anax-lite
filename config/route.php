@@ -13,6 +13,10 @@ require __DIR__ . "/route/login.php";
 require __DIR__ . "/route/register.php";
 require __DIR__ . "/route/logout.php";
 require __DIR__ . "/take2Routes/filter.php";
+require __DIR__ . "/take2Routes/overview.php";
+require __DIR__ . "/take2Routes/blogg.php";
+require __DIR__ . "/take2Routes/pages.php";
+require __DIR__ . "/take2Routes/block.php";
 
 require __DIR__ . "/route/back.php";
 require __DIR__ . "/route/sessionstatus.php";

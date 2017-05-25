@@ -39,6 +39,13 @@ $app->db->setDefaultsFromConfiguration();
 $app->db->connect();
 
 
+$app->server = new \watel\DatabaseUpdated\DatabaseConfigure();
+$app->server->configure("database.php");
+$app->server->setDefaultsFromConfiguration();
+
+$app->server->connect();
+
+
 $app->navbar->setApp($app);
 
 

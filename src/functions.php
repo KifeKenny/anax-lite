@@ -96,3 +96,57 @@ function orderby2($column, $route, $bol = false)
 </span>
 EOD;
 }
+
+function slugify($str)
+{
+    $str = mb_strtolower(trim($str));
+    $str = str_replace(array('å','ä','ö'), array('a','a','o'), $str);
+    $str = preg_replace('/[^a-z0-9-]/', '-', $str);
+    $str = trim(preg_replace('/-+/', '-', $str), '-');
+    return $str;
+}
+
+
+
+/**
+ * suports sql with ? replaceses all ? with array values
+ *amount of ? and array value must be equal
+ *
+ *
+ * @param string $query  as the query to prepare.
+ * @param array  $params the parameters that may contain arrays.
+ *
+ * @return sql kod with ? replaced by array values.
+ */
+function sqlParamMerge($query, $params)
+{
+    $queryArr = explode("?", $query);
+
+    // var_dump($queryArr);
+    // var_dump($params);
+    if ((count($queryArr) - 1) != count($params)) {
+        throw new Exception("query and array length don't match");
+    }
+
+    $newSql = "";
+    for ($i=0; $i < count($params); $i++) {
+        $qar = $queryArr[$i];
+        $par = $params[$i];
+        $newSql .= $qar . "'$par'";
+    }
+    $newSql .= end($queryArr);
+
+    return $newSql;
+}
+
+//takes string and give you back 260 char of that
+// always ends on space
+function certainAmount($body = "")
+{
+    $line = $body;
+    if (preg_match('/^.{1,260}\b/s', $body, $match)) {
+        $line=$match[0];
+    }
+
+    return $line;
+}
