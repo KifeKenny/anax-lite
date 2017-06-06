@@ -66,7 +66,6 @@ main {
 
 .bild_jag {
     width: 200px;
-    float: left;
     height: 200px;
     transform: rotate(90deg);
     margin: 10px;
@@ -294,4 +293,22 @@ article {
 
 .right {
     float: right;
+}
+
+.left {
+    float: left;
+}
+
+.shopPic {
+    width: 100px;
+    height: 100px;
+    /*padding-top: 20px;*/
+}
+
+.shopblock {
+    height: 250px;
+    width: 200px;
+    margin: 30px;
+    border: 2px solid grey;
+    text-align: center;
 }

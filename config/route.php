@@ -17,6 +17,7 @@ require __DIR__ . "/take2Routes/overview.php";
 require __DIR__ . "/take2Routes/blogg.php";
 require __DIR__ . "/take2Routes/pages.php";
 require __DIR__ . "/take2Routes/block.php";
+require __DIR__ . "/take2Routes/shop.php";
 
 require __DIR__ . "/route/back.php";
 require __DIR__ . "/route/sessionstatus.php";

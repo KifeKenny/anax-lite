@@ -2,7 +2,7 @@
 <h1>Home</h1>
 <hr>
 
-<img class="bild_jag" src="img/jag.JPG" alt="Kevin O.J">
+<img class="bild_jag left" src="img/jag.JPG" alt="Kevin O.J">
 
 <p>
 

@@ -198,9 +198,44 @@ som jag inte vet hur jag ska fixa.
 
 
 <h3>Kmom05</h3>
-<p>redovisnings text ... </p>
+<p>
+Allmänt<br>
+Skrev inte så mycket i min redovisnings text eftersom det mesta om min databas
+är redan dokumenterat i sql/setup-webbshop.md. Samt uppgift 2, 3 var redan
+sådant som vi redan har gjort och det stod klart dokumenterat hur vi skulle göra.
+<br><br>
+1.Gick det bra att komma igång med det vi kallar programmering av databas, med transaktioner, lagrade procedurer, triggers, funktioner?
+<br>Gick lite slöt i början. Men nu mot slutet verkar jag förstå det mesta tror jag.
+<br><br>
+2. Hur är din syn på att programmera på detta viset i databasen?
+<br>Jag kan se hur det kan vara användbart. Så att man slipper skriva koden i php eller
+något annat språk för att ändra i databasen när saker händer. Eller att man bara
+gör saker enklare för sig.
+<br><br>
+3. Några reflektioner kring din kod för backenden till webbshopen?
+<br>Utgick mest ifrån övningarna och samt den tilldelade koden av mos databas som
+vi fick. Använde mos databas kod och byggde ut den och samt tog bort lite saker
+som jag inte ansåg att jag behövde till detta kursmoment.
+<br><br>
+4. Något du vill säga om koden generellt i och kring Anax Lite?
+<br>Inte efter detta kursmoment. Detta kmom var ju mest att programmera i databasen
+och göra en crud för webbshopen, vilket är ungefär vad vi gjorde i förra kursmomentet.
 
-<p> mer text .. </p>
+<br><br>
+
+p.s när du ska göra en check/edit storge på en produkt på hemsidan måste du välja en
+shelf som finns i databasen annars får du felmedelande. Dem shelfs som finns
+default är: AAA101 och AAA102.
+
+Samt gjorde uppgift två att jag fick en massa valideringsfel från min dock app
+så jag flyttade doc appen manuelt till kmom05/doc för att få bort valideringsfelen 
+från anax.
+
+
+
+
+
+</p>
 
 
 <h3>Kmom06</h3>

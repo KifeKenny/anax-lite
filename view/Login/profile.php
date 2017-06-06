@@ -6,6 +6,7 @@ $login_url = $app->url->create("login");
 $logout_url = $app->url->create("logout");
 $change_pass_url = $app->url->create("change_pass");
 $overview_url = $app->url->create("overview");
+$adminShop_url = $app->url->create("adminShop");
 
 // Make sure no one is logged in
 if (!$app->session->has("name")) {
@@ -33,8 +34,9 @@ $name = $app->session->get("name");
 if ($name == "admin") {
     $admin_url = $app->url->create("admin");
     echo "<br><br>";
-    echo "<a href=$admin_url style=margin-right:50px;> Accounts</a>";
+    echo "<a href=$admin_url style=margin-right:20px;> Accounts</a>";
     echo "<a href=$overview_url> Overview</a>";
+    echo "<a href=$adminShop_url style=margin-left:20px;> Webbshop overview</a>";
 }
 echo "</div>";
 

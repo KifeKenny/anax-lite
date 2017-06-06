@@ -16,4 +16,14 @@ class App
         $this->response->setBody([$this->view, "render"])
                       ->send();
     }
+
+    public function renderPageMoreOpptions($title, $page, $folder, $res = [], $style = "style/style.css")
+    {
+        $this->view->add("take1/header", ["title" => ["$title", $style]]);
+        $this->view->add("$folder/$page", ["resultset" => $res]);
+        $this->view->add("take1/footer");
+
+        $this->response->setBody([$this->view, "render"])
+                      ->send();
+    }
 }
