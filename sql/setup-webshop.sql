@@ -304,9 +304,11 @@ CREATE TABLE `cartOrder` (
 
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`customer`) REFERENCES `Customer` (`id`),
+	KEY `index_created` (`created`),
     FOREIGN KEY (`product`) REFERENCES `Product` (`id`)
 );
 
+-- CREATE INDEX index_created ON cartOrder(created);
 
 CREATE TABLE `Messeges` (
 	`id` INT AUTO_INCREMENT,
@@ -317,6 +319,8 @@ CREATE TABLE `Messeges` (
 	`items` INT,
 
 	PRIMARY KEY (`id`),
+	KEY `index_message` (`message`),
+	KEY `index_date` (`date`),
     FOREIGN KEY (`product`) REFERENCES `Product` (`id`)
 );
 
@@ -441,6 +445,15 @@ SELECT * FROM VOrder;
 -- -------------------------------------------------------------------------
 
 
-SELECT * FROM CART;
+SELECT * FROM Cart;
 SELECT * FROM cartOrder;
 SELECT * FROM Messeges;
+
+
+-- EXPLAIN Inventory;
+-- EXPLAIN Product;
+-- EXPLAIN Cart;
+-- EXPLAIN cartOrder;
+-- EXPLAIN Messeges;
+-- EXPLAIN Customer;
+
